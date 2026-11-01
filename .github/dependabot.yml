@@ -1,0 +1,14 @@
+# Keeps the commit-pinned actions in .github/workflows current: one grouped pull request a week.
+# The cooldown waits a week after a release before proposing it, so a hijacked release has time
+# to be noticed and pulled before it reaches us.
+version: 2
+updates:
+- package-ecosystem: github-actions
+  directory: /
+  schedule:
+    interval: weekly
+  cooldown:
+    default-days: 7
+  groups:
+    actions:
+      patterns: ["*"]
